@@ -3,7 +3,12 @@ function ProductTable({ productList }) {
   return (
     <section className="table-section">
       <div className="table-header">
-        <h2 className="section-title">Product List</h2>
+        <h2 className="section-title">
+          Product List{" "}
+          {productList.length === 0 && (
+            <span className="center pulse-classic">⚠️Start adding product to the list</span>
+          )}
+        </h2>
       </div>
 
       <table className="product-table">
@@ -21,10 +26,8 @@ function ProductTable({ productList }) {
             <tr key={product.productName}>
               <td>{product.productName}</td>
               <td className="quantity">{product.quantity}</td>
-              <td className="price">{product.price}</td>
-              <td className="total-value">
-                {product.totalValue}
-              </td>
+              <td className="price">${product.price}</td>
+              <td className="total-value">${product.totalValue}</td>
               <td>
                 <span className="category-tag">{product.category}</span>
               </td>
