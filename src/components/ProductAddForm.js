@@ -8,7 +8,20 @@ function ProductAddForm({productList, setStockList}) {
 
     function handleSubmit(e) {
       e.preventDefault();
+      if (
+        productName === "" ||
+        quantity === "" ||
+        price === "" ||
+        category === ""
+      )
+        return;
+
       addNewProduct();
+
+      resetInput();
+    }
+
+    function resetInput() {
       setProductName("");
       setQuantity("");
       setPrice("");
@@ -73,11 +86,11 @@ function ProductAddForm({productList, setStockList}) {
               onChange={(e) => setCategory(e.target.value)}
             >
               <option value="">Select category</option>
-              <option value="electronics">Electronics</option>
-              <option value="clothing">Clothing</option>
-              <option value="food">Food</option>
-              <option value="accessories">Accessories</option>
-              <option value="home-goods">Home Goods</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Clothing">Clothing</option>
+              <option value="Food">Food</option>
+              <option value="Accessories">Accessories</option>
+              <option value="Home-goods">Home Goods</option>
             </select>
           </div>
           <div>
